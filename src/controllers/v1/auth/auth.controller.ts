@@ -30,7 +30,11 @@ export class AuthController {
   @Get('me')
   @UseGuards(JwtAuthGuard)
   getProfile(@Req() req) {
-    return req.user;
+    return {
+      data: req.user,
+      message: 'User profile retrieved successfully',
+      status: true,
+    };
   }
 
   @Get('admin')

@@ -40,13 +40,17 @@ export class AuthService {
       secret: process.env.jwtSecret,
     });
     return {
-      accessToken,
-      refreshToken,
-      user: {
-        id: user._id,
-        name: user.name,
-        email: user.email,
-        role: user.role,
+      status: true,
+      message: 'Login successful!!',
+      data: {
+        accessToken,
+        refreshToken,
+        user: {
+          id: user._id,
+          name: user.name,
+          email: user.email,
+          role: user.role,
+        },
       },
     };
   }
